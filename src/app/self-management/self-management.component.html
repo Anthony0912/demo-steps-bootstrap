@@ -1,0 +1,25 @@
+<!-- Steps -->
+<ul class="steps">
+  <li [ngClass]="'step' + getClassStep(step.step)" *ngFor="let step of steps">
+    <app-step class="cursor--method" (click)="handleOnClickStep(step.step)" [step]="step.step" [stepText]="step.stepText"></app-step>
+  </li>
+</ul>
+<div class="container">
+  <div [ngSwitch]="stepSelected">
+    <div *ngSwitchCase="1" class="animate__animated animate__fadeIn">
+      <app-personal-information [nameComplete]="selfManagement?.personalInformation?.name" (handleOnEmitterPersonalInformation)="handleOnChangeLocalStroge($event)"></app-personal-information>
+    </div>
+    <div *ngSwitchCase="2" class="animate__animated animate__fadeIn">
+      <app-documents [documentName]="selfManagement?.document?.documentName" (handleOnEmitterDocument)="handleOnChangeLocalStroge($event)"></app-documents>
+    </div>
+    <div *ngSwitchCase="3" class="animate__animated animate__fadeIn">
+      <app-identification [cardIdentification]="selfManagement?.identification?.cardIdentification" (handleOnEmitterIdentification)="handleOnChangeLocalStroge($event)"></app-identification>
+    </div>
+    <div *ngSwitchCase="4" class="animate__animated animate__fadeIn">
+      <app-revenues [nameComplete]="selfManagement?.revenues?.name" (handleOnEmitterRevenues)="handleOnChangeLocalStroge($event)"></app-revenues>
+    </div>
+    <div *ngSwitchCase="5" class="animate__animated animate__fadeIn">
+      <app-signatures [nameComplete]="selfManagement?.signature?.name" (handleOnEmitterSignatures)="handleOnChangeLocalStroge($event)"></app-signatures>
+    </div>
+  </div>
+</div>

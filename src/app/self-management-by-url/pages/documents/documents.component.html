@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()" autocomplete="off" [formGroup]="myForm">
+    <div class="mb-3 mt-3 text-center">
+        <h2>Documentos</h2>
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre del documento:</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Tarifas de venta de papas">
+        <span class="form-text text-danger" *ngIf="inputIsValid('name')">El nombre del documento es requerido. *</span>
+    </div>
+    <button type="submit" class="btn btn-primary float-end" [disabled]="myForm.invalid">Guardar</button>
+</form>
